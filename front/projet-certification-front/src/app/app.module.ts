@@ -5,11 +5,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DerniersMatchsComponent } from './components/derniers-matchs/derniers-matchs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DerniersMatchsComponent
   ],
   imports: [
     BrowserModule,

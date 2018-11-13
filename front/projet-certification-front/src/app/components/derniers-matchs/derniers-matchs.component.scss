@@ -1,0 +1,20 @@
+.case-surtitre-mobile {
+    max-width: calc(100% - 20px);
+    z-index: 1;
+    padding: 0 10px 0 20px;
+    background: #fee100;
+    font: 1em "Myriad Pro",Arial,helvetica,sans-serif;
+    display: block;
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+img {
+    height: 30px;
+    width: auto;
+}

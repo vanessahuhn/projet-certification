@@ -68,8 +68,8 @@ public class MatchController {
         }
 
         // Update all other not null attributes
-        if (match.getDate() != null) {
-            matchToUpdate.setDate(match.getDate());
+        if (match.getDateMatch() != null) {
+            matchToUpdate.setDateMatch(match.getDateMatch());
         }
 
         if (match.getEquipeDomicile() != null) {

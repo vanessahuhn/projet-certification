@@ -32,18 +32,26 @@ public class Match {
     private Integer butsDomicile;
     
     private Integer butsExterieur;
+    
+    private String logoDomicile;
+    
+    private String logoExterieur;
 
     public Match() {
     }
 
-    public Match(Long id, LocalDate date, String equipeDomicile, String equipeExterieur, int butsDomicile, int butsExterieur) {
+    public Match(Long id, LocalDate dateMatch, String equipeDomicile, String equipeExterieur, Integer butsDomicile, Integer butsExterieur, String logoDomicile, String logoExterieur) {
         this.id = id;
-        this.dateMatch = date;
+        this.dateMatch = dateMatch;
         this.equipeDomicile = equipeDomicile;
         this.equipeExterieur = equipeExterieur;
         this.butsDomicile = butsDomicile;
         this.butsExterieur = butsExterieur;
+        this.logoDomicile = logoDomicile;
+        this.logoExterieur = logoExterieur;
     }
+
+    
 
     public Long getId() {
         return id;
@@ -51,14 +59,6 @@ public class Match {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return dateMatch;
-    }
-
-    public void setDate(LocalDate dateMatch) {
-        this.dateMatch = dateMatch;
     }
 
     public String getEquipeDomicile() {
@@ -92,5 +92,29 @@ public class Match {
     public void setButsExterieur(Integer butsExterieur) {
         this.butsExterieur = butsExterieur;
     }
+
+    public LocalDate getDateMatch() {
+        return dateMatch;
+    }
+
+    public void setDateMatch(LocalDate dateMatch) {
+        this.dateMatch = dateMatch;
+    }
+
+    public String getLogoDomicile() {
+        return logoDomicile;
+    }
+
+    public void setLogoDomicile(String logoDomicile) {
+        this.logoDomicile = logoDomicile;
+    }
+
+    public String getLogoExterieur() {
+        return logoExterieur;
+    }
+
+    public void setLogoExterieur(String logoExterieur) {
+        this.logoExterieur = logoExterieur;
+    }    
       
 }

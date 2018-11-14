@@ -1,14 +1,14 @@
 <span class="case-surtitre case-surtitre-mobile primary-color text-white my-5 font-weight-bold">Derniers matchs</span>
-<div class="d-flex justify-content-around w-100">
+<div *ngFor="let match of matchs" class="d-flex justify-content-around w-100">
     <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e2/Olympique_lyonnais_%28logo%29.svg/888px-Olympique_lyonnais_%28logo%29.svg.png">
     <p>
-        Equipe domicile
+        {{ match.equipeDomicile }}
     </p>
     <p>
-        0 - 0
+        {{ match.butsDomicile }} - {{ match.butsExterieur }}
     </p>
     <p>
-        Equipe extérieure
+        {{ match.equipeExterieur }}
     </p>
     <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/1024px-Paris_Saint-Germain_Logo.svg.png">
 </div>

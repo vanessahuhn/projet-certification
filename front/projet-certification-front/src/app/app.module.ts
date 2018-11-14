@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DerniersMatchsComponent } from './components/derniers-matchs/derniers-matchs.component';
 import { Classementd1Component } from './components/classementd1/classementd1.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Classementd1Component } from './components/classementd1/classementd1.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),    
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

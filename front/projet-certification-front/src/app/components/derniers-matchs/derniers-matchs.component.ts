@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Match } from '../model/match';
+import { DataserviceService } from '../service/dataservice.service';
 
 @Component({
   selector: 'app-derniers-matchs',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DerniersMatchsComponent implements OnInit {
 
-  constructor() { }
+  matchs : Match[];
+
+  constructor(private dataService : DataserviceService) { }
 
   ngOnInit() {
+  this.dataService.getAllMatch().subscribe( matchs => this.matchs = matchs);
   }
 
 }

@@ -79,7 +79,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": -48,
+											"top": -64,
 											"height": 13
 										},
 										{
@@ -90,10 +90,10 @@
 											},
 											"font": "Arial;13;1",
 											"left": 189,
-											"top": 23,
+											"top": 15,
 											"width": 139.83251953125,
 											"height": 13,
-											"text": "Match"
+											"text": "MatchFootball"
 										},
 										{
 											"_type": "LabelView",
@@ -103,7 +103,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": -48,
+											"top": -64,
 											"width": 80.9072265625,
 											"height": 13,
 											"text": "(from Model1)"
@@ -116,14 +116,14 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": -48,
+											"top": -64,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 184,
-									"top": 16,
+									"top": 8,
 									"width": 149.83251953125,
 									"height": 25,
 									"stereotypeLabel": {
@@ -160,7 +160,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 46,
+											"top": 38,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+id: long",
@@ -177,7 +177,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 61,
+											"top": 53,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+dateMatch: Date",
@@ -194,7 +194,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 76,
+											"top": 68,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+equipeDomicile: String",
@@ -211,7 +211,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 91,
+											"top": 83,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+equipeExterieur: String",
@@ -228,7 +228,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 106,
+											"top": 98,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+butsDomicile: Integer",
@@ -245,7 +245,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 121,
+											"top": 113,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+butsExterieur: Integer",
@@ -262,7 +262,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 136,
+											"top": 128,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+logoDomicile: String",
@@ -279,7 +279,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 151,
+											"top": 143,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+logoExtérieur: String",
@@ -288,7 +288,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 184,
-									"top": 41,
+									"top": 33,
 									"width": 149.83251953125,
 									"height": 128
 								},
@@ -313,7 +313,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 189,
-											"top": 174,
+											"top": 166,
 											"width": 139.83251953125,
 											"height": 13,
 											"text": "+rechercher()",
@@ -322,7 +322,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 184,
-									"top": 169,
+									"top": 161,
 									"width": 149.83251953125,
 									"height": 23
 								},
@@ -337,7 +337,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"top": -24,
+									"top": -32,
 									"width": 10,
 									"height": 10
 								},
@@ -352,7 +352,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"top": -24,
+									"top": -32,
 									"width": 10,
 									"height": 10
 								}
@@ -360,7 +360,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 184,
-							"top": 16,
+							"top": 8,
 							"width": 149.83251953125,
 							"height": 177,
 							"nameCompartment": {
@@ -387,7 +387,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFnEZsENx5RWxs="
 					},
-					"name": "Match",
+					"name": "MatchFootball",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",

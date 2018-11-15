@@ -93,7 +93,7 @@
 											"top": 23,
 											"width": 139.83251953125,
 											"height": 13,
-											"text": "Match"
+											"text": "MatchFootball"
 										},
 										{
 											"_type": "LabelView",
@@ -387,7 +387,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFnEZsENx5RWxs="
 					},
-					"name": "Match",
+					"name": "MatchFootball",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",

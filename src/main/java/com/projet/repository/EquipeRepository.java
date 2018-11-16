@@ -5,13 +5,13 @@
  */
 package com.projet.repository;
 
-import com.projet.model.Match;
+import com.projet.model.Equipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author vanessa
  */
-public interface MatchRepository extends JpaRepository<Match, Long> {
+public interface EquipeRepository extends JpaRepository<Equipe, Long> {
 
 }

@@ -23,8 +23,52 @@ public class Equipe {
     
     private String nom;
     
-    private int place;
+    private Integer place;
     
-    private int points;
+    private Integer points;
+
+    public Equipe() {
+    }
+
+    public Equipe(Long id, String nom, Integer place, Integer points) {
+        this.id = id;
+        this.nom = nom;
+        this.place = place;
+        this.points = points;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Integer getPlace() {
+        return place;
+    }
+
+    public void setPlace(Integer place) {
+        this.place = place;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+    
+    
     
 }

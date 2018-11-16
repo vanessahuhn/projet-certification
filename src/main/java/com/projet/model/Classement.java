@@ -6,7 +6,6 @@
 package com.projet.model;
 
 import java.time.LocalDate;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,10 +22,44 @@ public class Classement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private int journee;
+    private Integer journee;
     
     private LocalDate dateJournee;
     
-    private List<Equipe> equipes;
+    //private List<Equipe> equipes;
+
+    public Classement() {
+    }
+
+    public Classement(Long id, Integer journee, LocalDate dateJournee) {
+        this.id = id;
+        this.journee = journee;
+        this.dateJournee = dateJournee;
+        //this.equipes = equipes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getJournee() {
+        return journee;
+    }
+
+    public void setJournee(Integer journee) {
+        this.journee = journee;
+    }
+
+    public LocalDate getDateJournee() {
+        return dateJournee;
+    }
+
+    public void setDateJournee(LocalDate dateJournee) {
+        this.dateJournee = dateJournee;
+    }    
     
 }

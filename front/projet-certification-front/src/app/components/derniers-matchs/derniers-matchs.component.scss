@@ -1,0 +1,22 @@
+.case-surtitre-mobile {
+    width: 50%;
+    z-index: 1;
+    padding: 0 10px 0 25px;
+    margin-left: - 8px;
+    display: block;
+    font-size: 0.85rem;
+    line-height: 2rem;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 5px 5px 2px grey;
+    border-radius: 0px 5px 5px 0px;
+
+}
+
+img {
+    height: 30px;
+    width: auto;
+}

@@ -259,7 +259,7 @@
 											"top": 47,
 											"width": 398,
 											"height": 13,
-											"text": "US2"
+											"text": "Mon API"
 										},
 										{
 											"_type": "LabelView",
@@ -1117,7 +1117,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFm+QMK2nUrwJc="
 					},
-					"name": "US2"
+					"name": "Mon API"
 				},
 				{
 					"_type": "UMLUseCase",

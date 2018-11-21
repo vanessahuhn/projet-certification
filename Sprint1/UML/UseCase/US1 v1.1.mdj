@@ -81,7 +81,7 @@
 											"top": 55,
 											"width": 550,
 											"height": 13,
-											"text": "US1"
+											"text": "Mon API"
 										},
 										{
 											"_type": "LabelView",
@@ -326,8 +326,8 @@
 								"$ref": "AAAAAAFm+Pyw7pYnTSw="
 							},
 							"font": "Arial;13;0",
-							"left": 40,
-							"top": 32,
+							"left": 32,
+							"top": 48,
 							"width": 88,
 							"height": 170,
 							"text": "En tant qu'utilisatrice, je souhaite visualiser les matchs les plus récents afin de me tenir au courant des derniers résultats.\n"
@@ -1718,7 +1718,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFm+Pyw7pYmXp0="
 					},
-					"name": "US1"
+					"name": "Mon API"
 				},
 				{
 					"_type": "UMLUseCase",

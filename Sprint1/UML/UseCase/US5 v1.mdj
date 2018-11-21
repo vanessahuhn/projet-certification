@@ -90,9 +90,9 @@
 											"font": "Arial;13;1",
 											"left": 197,
 											"top": 47,
-											"width": 670,
+											"width": 495,
 											"height": 13,
-											"text": "US5"
+											"text": "Mon API"
 										},
 										{
 											"_type": "LabelView",
@@ -121,7 +121,7 @@
 									"font": "Arial;13;0",
 									"left": 192,
 									"top": 40,
-									"width": 680,
+									"width": 505,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnF3lngcnaYak="
@@ -140,7 +140,7 @@
 							"font": "Arial;13;0",
 							"left": 192,
 							"top": 40,
-							"width": 680,
+							"width": 505,
 							"height": 400,
 							"nameCompartment": {
 								"$ref": "AAAAAAFnF3lngMnZv30="
@@ -355,7 +355,7 @@
 											"top": 150,
 											"width": 182,
 											"height": 13,
-											"text": "Trier les résultats"
+											"text": "Trier les résultats de matchs"
 										},
 										{
 											"_type": "LabelView",
@@ -1066,7 +1066,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFnF3jfM8nLXGw="
 					},
-					"name": "US5"
+					"name": "Mon API"
 				},
 				{
 					"_type": "UMLActor",
@@ -1111,7 +1111,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFnF3jfM8nLXGw="
 					},
-					"name": "Trier les résultats"
+					"name": "Trier les résultats de matchs"
 				},
 				{
 					"_type": "UMLUseCase",

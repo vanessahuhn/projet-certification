@@ -1580,9 +1580,9 @@
 										"$ref": "AAAAAAFnOBsPcBvn9O4="
 									},
 									"font": "Arial;13;0",
-									"left": 216,
+									"left": 215,
 									"top": 182,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -1642,16 +1642,16 @@
 										"$ref": "AAAAAAFnOBsPcBvosXM="
 									},
 									"font": "Arial;13;0",
-									"left": 447,
+									"left": 446,
 									"top": 152,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": -0.743743936251001,
 									"distance": 30.4138126514911,
 									"hostEdge": {
 										"$ref": "AAAAAAFnOBsPcBvqVoE="
 									},
-									"text": "0..*"
+									"text": "1..*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -1913,9 +1913,9 @@
 										"$ref": "AAAAAAFnOBsf3xwxas8="
 									},
 									"font": "Arial;13;0",
-									"left": 571,
+									"left": 570,
 									"top": 336,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2034,7 +2034,7 @@
 							"top": 88,
 							"width": 177,
 							"height": 51,
-							"text": "Objects of class Match may know about many objects of class Equipe "
+							"text": "Objects of class Match must know about many objects of class Equipe "
 						},
 						{
 							"_type": "UMLNoteView",
@@ -2085,7 +2085,7 @@
 								"reference": {
 									"$ref": "AAAAAAFm/eLknWmIpUw="
 								},
-								"multiplicity": "0..*"
+								"multiplicity": "1..*"
 							}
 						}
 					],

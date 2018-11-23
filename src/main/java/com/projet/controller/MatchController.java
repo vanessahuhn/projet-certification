@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author vanessa
  */
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/match")
 public class MatchController {
@@ -46,13 +46,18 @@ public class MatchController {
      *
      * @return List<Match> via matchRepository.findAll()
      */
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Match> getMatchById(@PathVariable(value = "id") long id) {
         Match match = matchRepository.getOne(id);
         if (match == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(match);
+    }
+    
+    @GetMapping("/last")
+    List<Match> getLastMatches() {
+        return matchRepository.findTop2ByOrderByIdDesc();
     }
 
     @PostMapping

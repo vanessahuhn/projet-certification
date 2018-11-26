@@ -14,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author vanessa
  */
 public interface MatchRepository extends JpaRepository<Match, Long> {
-    public List<Match> findTop2ByOrderByIdDesc();
+    public List<Match> findTop2ByOrderByMatchIdDesc();
 }

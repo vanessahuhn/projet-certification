@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package com.projet.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,14 +28,16 @@ public class Match {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long matchId;
     
     //date était un mot réservé
     private LocalDate dateMatch;
-    
-    private String equipeDomicile;
-    
-    private String equipeExterieur;
+            
+    @OneToOne
+    private Equipe equipeDomicile;
+        
+    @OneToOne
+    private Equipe equipeExterieur;
     
     //j'ai choisi le type Integer pour pouvoir vérifier si l'utilisateur a entré une valeur ou pas
     private Integer butsDomicile;
@@ -38,12 +47,20 @@ public class Match {
     private String logoDomicile;
     
     private String logoExterieur;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "Equipe_Match", 
+        joinColumns = { @JoinColumn(name = "match_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "equipe_id") }
+    )
+    private List<Equipe> equipes;
 
     public Match() {
     }
 
-    public Match(Long id, LocalDate dateMatch, String equipeDomicile, String equipeExterieur, Integer butsDomicile, Integer butsExterieur, String logoDomicile, String logoExterieur) {
-        this.id = id;
+    public Match(Long id, LocalDate dateMatch, Equipe equipeDomicile, Equipe equipeExterieur, Integer butsDomicile, Integer butsExterieur, String logoDomicile, String logoExterieur) {
+        this.matchId = id;
         this.dateMatch = dateMatch;
         this.equipeDomicile = equipeDomicile;
         this.equipeExterieur = equipeExterieur;
@@ -53,29 +70,19 @@ public class Match {
         this.logoExterieur = logoExterieur;
     }
 
-    
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEquipeDomicile() {
+    public Equipe getEquipeDomicile() {
         return equipeDomicile;
     }
 
-    public void setEquipeDomicile(String equipeDomicile) {
+    public void setEquipeDomicile(Equipe equipeDomicile) {
         this.equipeDomicile = equipeDomicile;
     }
 
-    public String getEquipeExterieur() {
+    public Equipe getEquipeExterieur() {
         return equipeExterieur;
     }
 
-    public void setEquipeExterieur(String equipeExterieur) {
+    public void setEquipeExterieur(Equipe equipeExterieur) {
         this.equipeExterieur = equipeExterieur;
     }
 
@@ -117,6 +124,24 @@ public class Match {
 
     public void setLogoExterieur(String logoExterieur) {
         this.logoExterieur = logoExterieur;
-    }    
+    }
+
+    public Long getMatchId() {
+        return matchId;
+    }
+
+    public void setMatchId(Long matchId) {
+        this.matchId = matchId;
+    }
+
+    public List<Equipe> getEquipes() {
+        return equipes;
+    }
+
+    public void setEquipes(List<Equipe> equipes) {
+        this.equipes = equipes;
+    }
+
+    
       
 }

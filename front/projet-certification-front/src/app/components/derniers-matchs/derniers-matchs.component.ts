@@ -14,7 +14,7 @@ export class DerniersMatchsComponent implements OnInit {
   constructor(private dataService : DataserviceService) { }
 
   ngOnInit() {
-  this.dataService.getAllMatch().subscribe( matchs => this.matchs = matchs);
+  this.dataService.getLastMatches().subscribe( matchs => this.matchs = matchs);
   }
 
 }

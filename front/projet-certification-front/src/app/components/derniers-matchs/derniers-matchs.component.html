@@ -2,13 +2,13 @@
 <div *ngFor="let match of matchs" class="d-flex justify-content-around w-100 pt-5">
     <img src="{{ match.logoDomicile }}">
     <p>
-        {{ match.equipeDomicile }}
+        {{ match.equipeDomicile.points }}{{ match.equipeDomicile.nom }}
     </p>
     <p>
         {{ match.butsDomicile }} - {{ match.butsExterieur }}
     </p>
     <p>
-        {{ match.equipeExterieur }}
+        {{ match.equipeExterieur.nom }}{{ match.equipeExterieur.points }}
     </p>
     <img src="{{ match.logoExterieur }}">
 </div>

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author vanessa
  */
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/equipe")
 public class EquipeController {

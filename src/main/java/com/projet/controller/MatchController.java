@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author vanessa
  */
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/match")
 public class MatchController {
@@ -74,9 +74,10 @@ public class MatchController {
 
     @PostMapping
     Match addMatch(@Valid @RequestBody Match match) {
-        match.setEquipes(equipeRepository.findAll());
         service.setTeams(match, match.getEquipes());
         service.setPoints(match, match.getEquipeDomicile(), match.getEquipeExterieur());
+        equipeRepository.save(match.getEquipeDomicile());
+        equipeRepository.save(match.getEquipeExterieur());        
         return matchRepository.save(match);
     }
 

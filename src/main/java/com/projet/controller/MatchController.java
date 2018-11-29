@@ -6,7 +6,9 @@
 package com.projet.controller;
 
 import com.projet.model.Match;
+import com.projet.repository.EquipeRepository;
 import com.projet.repository.MatchRepository;
+import com.projet.service.MatchService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,16 @@ public class MatchController {
     @Autowired
     //je créé une instance de LinkRepository
     private MatchRepository matchRepository;
+    
+    //permet d'injecter LinkRepository dans mon contrôleur
+    @Autowired
+    //je créé une instance de LinkRepository
+    private EquipeRepository equipeRepository;
+    
+    //permet d'injecter LinkRepository dans mon contrôleur
+    @Autowired
+    //je créé une instance de LinkRepository
+    private MatchService service;
 
     @GetMapping
     List<Match> getAllMatch() {
@@ -46,7 +58,7 @@ public class MatchController {
      *
      * @return List<Match> via matchRepository.findAll()
      */
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Match> getMatchById(@PathVariable(value = "id") long id) {
         Match match = matchRepository.getOne(id);
         if (match == null) {
@@ -54,9 +66,18 @@ public class MatchController {
         }
         return ResponseEntity.ok().body(match);
     }
+    
+    @GetMapping("/last")
+    List<Match> getLastMatches() {
+        return matchRepository.findTop2ByOrderByMatchIdDesc();
+    }
 
     @PostMapping
     Match addMatch(@Valid @RequestBody Match match) {
+        service.setTeams(match, match.getEquipes());
+        service.setPoints(match, match.getEquipeDomicile(), match.getEquipeExterieur());
+        equipeRepository.save(match.getEquipeDomicile());
+        equipeRepository.save(match.getEquipeExterieur());        
         return matchRepository.save(match);
     }
 

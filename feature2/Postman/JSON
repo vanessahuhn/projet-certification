@@ -1,0 +1,42 @@
+{
+	"nom": "Paris FC",
+	"points": 0
+}
+{
+	"nom": "Paris SG",
+	"points": 0
+}
+
+{
+    "equipeId": 1,
+    "nom": "Paris FC",
+    "place": null,
+    "points": 0,
+    "matchs": null
+}
+
+{
+    "equipeId": 2,
+    "nom": "Paris SG",
+    "place": null,
+    "points": 0,
+    "matchs": null
+}
+
+{
+	"equipeDomicile": {
+    "equipeId": 1,
+    "nom": "Paris FC",
+    "place": null,
+    "points": 0
+},
+	"equipeExterieur": {
+    "equipeId": 2,
+    "nom": "Paris SG",
+    "place": null,
+    "points": 0
+},
+	"butsDomicile": 3,
+	"butsExterieur": 0,
+	"date": "2018-11-23"
+}

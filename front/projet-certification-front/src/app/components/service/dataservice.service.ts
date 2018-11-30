@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Match } from '../model/match';
 import { Equipe } from '../model/equipe';
 import { MatchService } from './match.service';
+import { EquipeService } from './equipe.service';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { MatchService } from './match.service';
 })
 export class DataserviceService {
 
-  constructor(private httpClient : HttpClient, private matchService: MatchService) { }
+  constructor(private httpClient : HttpClient, private matchService: MatchService, private equipeService: EquipeService) { }
   
   public getLastMatches() : Observable<Match[]> {
     return this.httpClient.get<Match[]>('http://localhost:8080/api/match/last');
@@ -27,6 +28,8 @@ export class DataserviceService {
           
   public getEquipes() : Observable<Equipe[]> {return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe');
           }
+          
+          public getEquipesByPoints() : Observable<Equipe[]> {return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe/points');
   public addEquipe (equipe: Equipe): Observable<Equipe> {
       return this.httpClient.post<Equipe>('http://localhost:8080/api/equipe', equipe);
   }

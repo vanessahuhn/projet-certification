@@ -14,7 +14,7 @@ export class Classementd1Component implements OnInit {
   constructor(private dataService : DataserviceService) { }
 
   ngOnInit() {
-  this.dataService.getEquipes().subscribe( equipes => this.equipes = equipes);
+  this.dataService.getEquipesByPoints().subscribe( equipes => this.equipes = equipes);
   }
 
 }

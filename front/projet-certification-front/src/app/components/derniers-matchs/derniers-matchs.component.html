@@ -1,3 +1,6 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+<div class="col-sm-12 col-md-12 col-lg-6 p-0">
 <span class="case-surtitre case-surtitre-mobile primary-color text-white font-weight-bold">Derniers matchs</span>
 <div *ngFor="let match of matchs" class="d-flex justify-content-around w-100 pt-5">
     <img src="{{ match.logoDomicile }}">
@@ -28,4 +31,9 @@
 </div>
 <div class="d-flex justify-content-center">
     <button type="button" class="btn btn-outline-primary waves-effect mx-auto my-4">Voir plus...</button>
+</div>
+</div>
+<app-classementd1 class="col-sm-12 col-md-12 col-lg-6 p-0"></app-classementd1>
+    </div>
+
 </div>

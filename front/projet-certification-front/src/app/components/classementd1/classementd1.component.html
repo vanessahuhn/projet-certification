@@ -9,11 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Olympique Lyonnais</td>
+    <tr *ngFor="let equipe of equipes" >
+      <th scope="row">{{equipe.place}}</th>
+      <td>{{equipe.nom}}</td>
       <td><i class="fa fa-minus fa-lg text-light" aria-hidden="true"></i></td>
-      <td>27</td>
+      <td>{{equipe.points}}</td>
     </tr>
     <tr>
       <th scope="row">2</th>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Match } from '../model/match';
+import { Equipe } from '../model/equipe';
 import { DataserviceService } from '../service/dataservice.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { DataserviceService } from '../service/dataservice.service';
 export class DerniersMatchsComponent implements OnInit {
 
   matchs : Match[];
+  equipes : Equipe[];
 
   constructor(private dataService : DataserviceService) { }
 
   ngOnInit() {
-  this.dataService.getLastMatches().subscribe( matchs => this.matchs = matchs);
+  this.dataService.getEquipes().subscribe( equipes => this.equipes = equipes);
+  this.dataService.getLastMatches().subscribe( matchs => this.matchs = matchs);  
   }
 
 }

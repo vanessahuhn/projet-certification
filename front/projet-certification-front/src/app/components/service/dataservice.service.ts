@@ -25,6 +25,8 @@ export class DataserviceService {
       return this.httpClient.post<Match>('http://localhost:8080/api/match', match);
     }
           
+  public getEquipes() : Observable<Equipe[]> {return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe');
+          }
   public addEquipe (equipe: Equipe): Observable<Equipe> {
       return this.httpClient.post<Equipe>('http://localhost:8080/api/equipe', equipe);
   }

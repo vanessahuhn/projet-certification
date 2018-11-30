@@ -6,10 +6,12 @@
 package com.projet.model;
 
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,6 +27,9 @@ public class Classement {
     private Integer journee;
     
     private LocalDate dateJournee;
+    
+    @OneToMany (mappedBy = "classement")
+    private List<Equipe> equipes;
     
     //private List<Equipe> equipes;
 

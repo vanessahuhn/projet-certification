@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipe } from '../model/equipe';
+import { DataserviceService } from '../service/dataservice.service';
 
 @Component({
   selector: 'app-classementd1',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Classementd1Component implements OnInit {
 
-  constructor() { }
+    equipes : Equipe[];
+
+  constructor(private dataService : DataserviceService) { }
 
   ngOnInit() {
+  this.dataService.getEquipesByPoints().subscribe( equipes => this.equipes = equipes);
   }
 
 }

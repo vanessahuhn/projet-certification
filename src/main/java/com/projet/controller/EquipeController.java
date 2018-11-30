@@ -54,6 +54,11 @@ public class EquipeController {
         }
         return ResponseEntity.ok().body(equipe);
     }
+    
+    @GetMapping("/points")
+    List<Equipe> getEquipeByPoints() {
+        return equipeRepository.findByOrderByPointsDesc();
+    }
 
     @PostMapping
     Equipe addEquipe(@Valid @RequestBody Equipe equipe) {

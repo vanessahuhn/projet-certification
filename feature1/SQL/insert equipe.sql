@@ -12,3 +12,7 @@ VALUES
 'Paris FC',
 0,
 0);
+(3,
+'Olympique Lyonnais',
+0,
+10);

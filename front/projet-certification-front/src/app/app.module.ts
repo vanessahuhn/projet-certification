@@ -8,13 +8,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { DerniersMatchsComponent } from './components/derniers-matchs/derniers-matchs.component';
 import { Classementd1Component } from './components/classementd1/classementd1.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatchTableComponent } from './components/match-table/match-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DerniersMatchsComponent,
-    Classementd1Component
+    Classementd1Component,
+    DashboardComponent,
+    MatchTableComponent
   ],
   imports: [
     BrowserModule,

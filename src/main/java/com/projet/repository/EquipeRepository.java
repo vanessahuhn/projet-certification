@@ -6,6 +6,7 @@
 package com.projet.repository;
 
 import com.projet.model.Equipe;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author vanessa
  */
 public interface EquipeRepository extends JpaRepository<Equipe, Long> {
-
+    public List<Equipe> findByOrderByPointsDesc();
 }

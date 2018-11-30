@@ -1,9 +1,12 @@
+import { Equipe } from './equipe';
+
 export class Match {
 
 dateMatch : Date;
-equipeDomicile : string;
-equipeExterieur : string;
+equipeDomicile : Equipe;
+equipeExterieur : Equipe;
 butsDomicile : number;
 butsExterieur : number;
+equipes : Equipe[];
   
 }

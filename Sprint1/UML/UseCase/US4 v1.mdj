@@ -79,7 +79,7 @@
 											"top": 71,
 											"width": 470,
 											"height": 13,
-											"text": "US4"
+											"text": "Mon API"
 										},
 										{
 											"_type": "LabelView",
@@ -1064,7 +1064,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFm+QxorYfY6dU="
 					},
-					"name": "US4"
+					"name": "Mon API"
 				},
 				{
 					"_type": "UMLActor",

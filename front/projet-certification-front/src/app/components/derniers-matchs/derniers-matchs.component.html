@@ -3,7 +3,7 @@
 <div class="col-sm-12 col-md-12 col-lg-6 p-0">
 <span class="case-surtitre case-surtitre-mobile primary-color text-white font-weight-bold">Derniers matchs</span>
 <div *ngFor="let match of matchs" class="d-flex justify-content-around w-100 pt-5">
-    <img src="{{ match.logoDomicile }}">
+    <img src="{{ match.equipeDomicile.logo }}" alt="logo {{ match.equipeDomicile.nom }}">
     <p>
         {{ match.equipeDomicile.points }}{{ match.equipeDomicile.nom }}
     </p>
@@ -13,7 +13,7 @@
     <p>
         {{ match.equipeExterieur.nom }}{{ match.equipeExterieur.points }}
     </p>
-    <img src="{{ match.logoExterieur }}">
+    <img src="{{ match.equipeExterieur.logo }} alt="logo {{ match.equipeExterieur.nom }}"">
 </div>
 <hr class="w-75 center">
 <div class="d-flex justify-content-around w-100">

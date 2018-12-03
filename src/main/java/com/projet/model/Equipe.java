@@ -31,6 +31,8 @@ public class Equipe {
     
     private Integer points;
     
+    private String logo;
+    
     @JsonIgnore
     @ManyToMany(mappedBy = "equipes")
     private List<Match> matchs;
@@ -41,11 +43,14 @@ public class Equipe {
     public Equipe() {
     }
 
-    public Equipe(Long id, String nom, Integer place, Integer points) {
-        this.equipeId = id;
+    public Equipe(Long equipeId, String nom, Integer place, Integer points, String logo, List<Match> matchs, Classement classement) {
+        this.equipeId = equipeId;
         this.nom = nom;
         this.place = place;
         this.points = points;
+        this.logo = logo;
+        this.matchs = matchs;
+        this.classement = classement;
     }
 
     public String getNom() {
@@ -86,6 +91,22 @@ public class Equipe {
 
     public void setMatchs(List<Match> matchs) {
         this.matchs = matchs;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public Classement getClassement() {
+        return classement;
+    }
+
+    public void setClassement(Classement classement) {
+        this.classement = classement;
     }
     
     

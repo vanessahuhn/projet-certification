@@ -74,10 +74,10 @@ public class MatchController {
 
     @PostMapping
     Match addMatch(@Valid @RequestBody Match match) {
-        service.setTeams(match, match.getEquipes());
-        service.setPoints(match, match.getEquipeDomicile(), match.getEquipeExterieur());
-        equipeRepository.save(match.getEquipeDomicile());
-        equipeRepository.save(match.getEquipeExterieur());        
+        //service.setTeams(match, match.getEquipes());
+        //service.setPoints(match, match.getEquipeDomicile(), match.getEquipeExterieur());
+        //equipeRepository.save(match.getEquipeDomicile());
+        //equipeRepository.save(match.getEquipeExterieur());        
         return matchRepository.save(match);
     }
 

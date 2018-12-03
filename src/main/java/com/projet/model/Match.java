@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,10 +33,10 @@ public class Match {
     //date était un mot réservé
     private LocalDate dateMatch;
      
-    @OneToOne
+    @ManyToOne
     private Equipe equipeDomicile;    
     
-    @OneToOne
+    @ManyToOne
     private Equipe equipeExterieur;
     
     //j'ai choisi le type Integer pour pouvoir vérifier si l'utilisateur a entré une valeur ou pas

@@ -7,7 +7,7 @@ import { Equipe } from '../model/equipe';
 })
 export class MatchService {
 
-public setTeams(match: Match, equipes: Equipe[]){
+/*public setTeams(match: Match, equipes: Equipe[]){
 
 for (let equipe of equipes){
       if (equipes.indexOf(equipe) % 2 === 0) {
@@ -17,7 +17,7 @@ for (let equipe of equipes){
         match.equipeExterieur = equipe;
       }
       }
-}
+}*/
 
 public setPoints(match: Match, equipeDomicile: Equipe, equipeExterieur: Equipe) {
     if (match.butsDomicile > match.butsExterieur) {
@@ -27,8 +27,8 @@ public setPoints(match: Match, equipeDomicile: Equipe, equipeExterieur: Equipe) 
         equipeExterieur.points += 3;
     }
     else {
-        equipeDomicile.points ++;
-        equipeExterieur.points ++;
+        equipeDomicile.points += 1;
+        equipeExterieur.points += 1;
     }
 }
   constructor() { }

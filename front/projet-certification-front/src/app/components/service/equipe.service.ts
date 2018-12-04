@@ -6,5 +6,11 @@ import { Equipe } from '../model/equipe';
 })
 export class EquipeService {
 
+public setPlace(equipes : Equipes[]) {
+for (let equipe of equipes){
+    equipe.place = equipes.indexOf(equipe) + 1;
+    }
+}
+
   constructor() { }
 }

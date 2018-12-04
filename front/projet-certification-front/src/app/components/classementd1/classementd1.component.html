@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let equipe of equipes">
-                <th class="align-middle" scope="row">{{equipe.place}}</th>
+                <th class="align-middle" scope="row">{{equipes.indexOf(equipe) + 1}}</th>
                 <td><img class = "mx-3 align-middle rounded-circle border border-light" src="{{ equipe.logo }}" alt="logo {{ equipe.nom }}">{{equipe.nom}}</td>
                 <td class="align-middle"><i class="fa fa-minus fa-lg text-light" aria-hidden="true"></i></td>
                 <td class="align-middle">{{equipe.points}}</td>

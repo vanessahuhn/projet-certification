@@ -23,6 +23,8 @@ export class MatchTableComponent implements OnInit {
   
   newMatch() {
     this.dataService.addMatch(this.match).subscribe(match => this.matchs.push(match));
+    this.dataService.updateEquipe(this.match.equipeDomicile).subscribe(equipe => this.equipes.push(equipe));
+    this.dataService.updateEquipe(this.match.equipeExterieur).subscribe(equipe => this.equipes.push(equipe));
   }
 
 }

@@ -2,33 +2,20 @@
     <div class="row mt-5">
 <div class="col-sm-12 col-md-12 col-lg-6 p-0">
 <span class="case-surtitre case-surtitre-mobile primary-color text-white font-weight-bold">Derniers matchs</span>
-<div *ngFor="let match of matchs" class="d-flex justify-content-around w-100 pt-5">
-    <img src="{{ match.logoDomicile }}">
+<div *ngFor="let match of matchs" class="d-flex justify-content-between w-75 pt-5 mx-5 border-bottom">
+    <img class="rounded-circle border border-light" src="{{ match.equipeDomicile.logo }}" alt="logo {{ match.equipeDomicile.nom }}">
     <p>
-        {{ match.equipeDomicile.points }}{{ match.equipeDomicile.nom }}
+        {{ match.equipeDomicile.nom }}
     </p>
     <p>
         {{ match.butsDomicile }} - {{ match.butsExterieur }}
     </p>
     <p>
-        {{ match.equipeExterieur.nom }}{{ match.equipeExterieur.points }}
+        {{ match.equipeExterieur.nom }}
     </p>
-    <img src="{{ match.logoExterieur }}">
+    <img class="rounded-circle border border-light" src="{{ match.equipeExterieur.logo }}" alt="logo {{ match.equipeExterieur.nom }}">
 </div>
-<hr class="w-75 center">
-<div class="d-flex justify-content-around w-100">
-    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e2/Olympique_lyonnais_%28logo%29.svg/888px-Olympique_lyonnais_%28logo%29.svg.png">
-    <p>
-        Equipe domicile
-    </p>
-    <p>
-        0 - 0
-    </p>
-    <p>
-        Equipe extérieure
-    </p>
-    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/1024px-Paris_Saint-Germain_Logo.svg.png">
-</div>
+
 <div class="d-flex justify-content-center">
     <button type="button" class="btn btn-outline-primary waves-effect mx-auto my-4">Voir plus...</button>
 </div>

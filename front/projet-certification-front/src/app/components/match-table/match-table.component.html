@@ -1,56 +1,101 @@
-<div class="table-responsive py-2">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-        <th scope="col">Heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="5" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm" style="width: 25%">idMatch
+                </th>
+                <th class="th-sm" style="width: 25%">Equipe domicile
+                </th>
+                <th class="th-sm" style="width: 25%">Equipe exterieur
+                </th>
+                <th class="th-sm" style="width: 25%">DateMatch
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let match of matchs">
+            <tr>
+                <td>{{match.matchId}}</td>
+                <td>{{match.equipeDomicile.nom}}</td>
+                <td>{{match.equipeExterieur.nom}}</td>
+                <td>{{match.dateMatch}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>idMatch
+                </th>
+                <th>Equipe domicile
+                </th>
+                <th>Equipe exterieur
+                </th>
+                <th>DateMatch
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">Ajouter match</button>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-1">
+                    <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
+                        <div class="md-form form-sm">
+                            <i class="fa fa-calendar prefix"></i>
+                            <input type="date" id="dateMatch" class="form-control form-control-sm"
+                                   [(ngModel)]="match.dateMatch" name="dateMatch"
+                                   #dateMatch="ngModel">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <!-- Basic dropdown -->
+                                <select class="browser-default custom-select mb-3" id="equipeDomicile" [(ngModel)]="match.equipeDomicile" name="equipeDomicile"
+                                   #equipeDomicile="ngModel">
+                                    <option selected>Equipe domicile</option>
+                                    <option *ngFor="let equipe of equipes" [ngValue]="equipe" >{{equipe.nom}}</option>
+                                </select>
+                            </div>
+
+                            <label for="butsDomicile" class="form-group col-md-2" >Buts</label>
+
+                            <div class="form-group col-md-4">
+                                <input type="number" class="form-control" id="butsDomicile" placeholder="0" [(ngModel)]="match.butsDomicile" name="butsDomicile"
+                                   #butsDomicile="ngModel">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <select class="browser-default custom-select" id="equipeExterieur"[(ngModel)]="match.equipeExterieur" name="equipeExterieur"
+                                   #equipeExterieur="ngModel">
+                                    <option selected>Equipe exterieur</option>
+                                    <option *ngFor="let equipe of equipes" [ngValue]="equipe" >{{equipe.nom}}</option>
+                                </select>
+                            </div>
+                            <label for="inputZip" class="form-group col-md-2">Buts</label>
+
+                            <div class="form-group col-md-4">
+                                <input type="number" class="form-control" id="butsExterieur" placeholder="0" [(ngModel)]="match.butsExterieur" name="butsExterieur"
+                                   #butsExterieur="ngModel">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="button" class="btn btn-primary" (click)="newMatch()" data-dismiss="modal">Sauvegarder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

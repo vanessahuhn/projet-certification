@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DerniersMatchsComponent } from './components/derniers-matchs/derniers-matchs.component';
@@ -10,6 +11,7 @@ import { Classementd1Component } from './components/classementd1/classementd1.co
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatchTableComponent } from './components/match-table/match-table.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatchTableComponent } from './components/match-table/match-table.compon
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),    
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

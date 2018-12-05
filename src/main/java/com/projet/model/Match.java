@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,20 +33,16 @@ public class Match {
     //date était un mot réservé
     private LocalDate dateMatch;
      
-    @OneToOne
+    @ManyToOne
     private Equipe equipeDomicile;    
     
-    @OneToOne
+    @ManyToOne
     private Equipe equipeExterieur;
     
     //j'ai choisi le type Integer pour pouvoir vérifier si l'utilisateur a entré une valeur ou pas
     private Integer butsDomicile;
     
     private Integer butsExterieur;
-    
-    private String logoDomicile;
-    
-    private String logoExterieur;
     
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
@@ -58,15 +55,13 @@ public class Match {
     public Match() {
     }
 
-    public Match(Long id, LocalDate dateMatch, Equipe equipeDomicile, Equipe equipeExterieur, Integer butsDomicile, Integer butsExterieur, String logoDomicile, String logoExterieur) {
+    public Match(Long id, LocalDate dateMatch, Equipe equipeDomicile, Equipe equipeExterieur, Integer butsDomicile, Integer butsExterieur) {
         this.matchId = id;
         this.dateMatch = dateMatch;
         this.equipeDomicile = equipeDomicile;
         this.equipeExterieur = equipeExterieur;
         this.butsDomicile = butsDomicile;
         this.butsExterieur = butsExterieur;
-        this.logoDomicile = logoDomicile;
-        this.logoExterieur = logoExterieur;
     }
 
     public Equipe getEquipeDomicile() {
@@ -107,22 +102,6 @@ public class Match {
 
     public void setDateMatch(LocalDate dateMatch) {
         this.dateMatch = dateMatch;
-    }
-
-    public String getLogoDomicile() {
-        return logoDomicile;
-    }
-
-    public void setLogoDomicile(String logoDomicile) {
-        this.logoDomicile = logoDomicile;
-    }
-
-    public String getLogoExterieur() {
-        return logoExterieur;
-    }
-
-    public void setLogoExterieur(String logoExterieur) {
-        this.logoExterieur = logoExterieur;
     }
 
     public Long getMatchId() {

@@ -6,8 +6,6 @@
 package com.projet.controller;
 
 import com.projet.model.Match;
-import com.projet.repository.EquipeRepository;
-import com.projet.repository.MatchRepository;
 import com.projet.service.MatchService;
 import java.util.List;
 import javax.validation.Valid;
@@ -31,16 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/match")
 public class MatchController {
-
-    //permet d'injecter LinkRepository dans mon contrôleur
-    @Autowired
-    //je créé une instance de LinkRepository
-    private MatchRepository matchRepository;
-    
-    //permet d'injecter LinkRepository dans mon contrôleur
-    @Autowired
-    //je créé une instance de LinkRepository
-    private EquipeRepository equipeRepository;
     
     //permet d'injecter LinkRepository dans mon contrôleur
     @Autowired
@@ -49,7 +37,7 @@ public class MatchController {
 
     @GetMapping
     List<Match> getAllMatch() {
-        return matchRepository.findAll();
+        return service.getAllMatch();
     }
 
     /**
@@ -60,7 +48,7 @@ public class MatchController {
      */
     @GetMapping("/{id}")
     ResponseEntity<Match> getMatchById(@PathVariable(value = "id") long id) {
-        Match match = matchRepository.getOne(id);
+        Match match = service.getMatchById(id);
         if (match == null) {
             return ResponseEntity.notFound().build();
         }
@@ -69,21 +57,17 @@ public class MatchController {
     
     @GetMapping("/last")
     List<Match> getLastMatches() {
-        return matchRepository.findTop2ByOrderByMatchIdDesc();
+        return service.getLastMatches();
     }
 
     @PostMapping
-    Match addMatch(@Valid @RequestBody Match match) {
-        service.setTeams(match, match.getEquipes());
-        service.setPoints(match, match.getEquipeDomicile(), match.getEquipeExterieur());
-        equipeRepository.save(match.getEquipeDomicile());
-        equipeRepository.save(match.getEquipeExterieur());        
-        return matchRepository.save(match);
+    Match addMatch(@Valid @RequestBody Match match) {        
+        return service.addMatch(match);
     }
 
     @PutMapping("/{id}")
     ResponseEntity<Match> updateMatch(@PathVariable(value = "id") long id, @Valid @RequestBody Match match) {
-        Match matchToUpdate = matchRepository.getOne(id);
+        Match matchToUpdate = service.getMatchById(id);
         if (matchToUpdate == null) {
             return ResponseEntity.notFound().build();
         }
@@ -109,18 +93,17 @@ public class MatchController {
             matchToUpdate.setButsExterieur(match.getButsExterieur());
         }
 
-        Match updatedMatch = matchRepository.save(matchToUpdate);
+        Match updatedMatch = service.updateMatch(match);
         return ResponseEntity.ok(updatedMatch);
     }
 
     @DeleteMapping("/{id}")
     ResponseEntity<Match> deleteMatch(@PathVariable(value = "id") long id) {
-        Match match = matchRepository.getOne(id);
+        Match match = service.getMatchById(id);
         if (match == null) {
             return ResponseEntity.notFound().build();
         }
-
-        matchRepository.delete(match);
+        service.deleteMatch(match);
         return ResponseEntity.ok().build();
     }
 

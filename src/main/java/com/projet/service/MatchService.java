@@ -7,7 +7,9 @@ package com.projet.service;
 
 import com.projet.model.Equipe;
 import com.projet.model.Match;
+import com.projet.repository.MatchRepository;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,32 +18,36 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MatchService {
-    
-    public void setTeams(Match match, List<Equipe> equipes) {
-        for (Equipe equipe : equipes) {
-            if (equipes.indexOf(equipe) % 2 == 0)
-            {
-                match.setEquipeDomicile(equipe);
-            }
-            else {
-                match.setEquipeExterieur(equipe);
-            }
-        }
-    }
-    
-    public void setPoints(Match match, Equipe equipeDomicile, Equipe equipeExterieur) {
 
-        if (match.getButsDomicile() > match.getButsExterieur()){
-            equipeDomicile.setPoints(equipeDomicile.getPoints() + 3);
-        }
-        else if (match.getButsDomicile() < match.getButsExterieur()){
-            equipeExterieur.setPoints(equipeExterieur.getPoints() + 3);
-        }
-        else {
-            equipeDomicile.setPoints(equipeDomicile.getPoints() + 1);
-            equipeExterieur.setPoints(equipeExterieur.getPoints() + 1);
-        }
-                
+    //permet d'injecter LinkRepository dans mon contrôleur
+    @Autowired
+    //je créé une instance de LinkRepository
+    private MatchRepository matchRepository;
+
+    public List<Match> getAllMatch() {
+        return matchRepository.findAll();
+    }
+
+    public Match getMatchById(long id) {
+        Match match = matchRepository.getOne(id);
+        return match;
     }
     
+    public List<Match> getLastMatches() {
+        return matchRepository.findTop2ByOrderByMatchIdDesc();
+    }
+    
+    public Match addMatch(Match match) {        
+        return matchRepository.save(match);
+    }
+    
+    public Match updateMatch(Match match) {       
+        Match updatedMatch = matchRepository.save(match);
+        return updatedMatch;
+    }
+    
+    public Match deleteMatch(Match match) {
+        matchRepository.delete(match);
+        return match;
+    }
 }

@@ -5,13 +5,14 @@
  */
 package com.projet.repository;
 
-import com.projet.model.Classement;
+import com.projet.model.Team;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author vanessa
  */
-public interface ClassementRepository extends JpaRepository<Classement, Long> {
-
+public interface TeamRepository extends JpaRepository<Team, Long> {
+    public List<Team> findByOrderByPointsDesc();
 }

@@ -23,15 +23,15 @@ export class DataserviceService {
   }
   
   public addMatch (match: Match): Observable<Match> {
-      this.matchService.setPoints(match, match.equipeDomicile, match.equipeExterieur);
-      
+      this.matchService.setPoints(match, match.equipeDomicile, match.equipeExterieur);     
       return this.httpClient.post<Match>('http://localhost:8080/api/match', match);
     }
           
   public getEquipes() : Observable<Equipe[]> {return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe');
           }
           
-          public getEquipesByPoints() : Observable<Equipe[]> {return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe/points');
+          public getEquipesByPoints() : Observable<Equipe[]> {
+                return this.httpClient.get<Equipe[]>('http://localhost:8080/api/equipe/points');
           }
   public addEquipe (equipe: Equipe): Observable<Equipe> {
       return this.httpClient.post<Equipe>('http://localhost:8080/api/equipe', equipe);

@@ -5,7 +5,7 @@
  */
 package com.projet.repository;
 
-import com.projet.model.Match;
+import com.projet.model.Fixture;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,6 +13,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author vanessa
  */
-public interface MatchRepository extends JpaRepository<Match, Long> {
-    public List<Match> findTop2ByOrderByMatchIdDesc();
+public interface FixtureRepository extends JpaRepository<Fixture, Long> {
+    public List<Fixture> findTop2ByOrderByFixtureIdDesc();
 }

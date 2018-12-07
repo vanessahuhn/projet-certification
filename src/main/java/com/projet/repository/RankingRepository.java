@@ -5,14 +5,13 @@
  */
 package com.projet.repository;
 
-import com.projet.model.Equipe;
-import java.util.List;
+import com.projet.model.Ranking;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author vanessa
  */
-public interface EquipeRepository extends JpaRepository<Equipe, Long> {
-    public List<Equipe> findByOrderByPointsDesc();
+public interface RankingRepository extends JpaRepository<Ranking, Long> {
+
 }

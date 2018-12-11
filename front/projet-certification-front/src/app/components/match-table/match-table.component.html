@@ -59,29 +59,30 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <!-- Basic dropdown -->
-                            <select class="browser-default custom-select mb-3" id="homeTeam" [(ngModel)]="fixture.homeTeam" name="homeTeam" #homeTeam="ngModel">
-                                <option selected>Equipe domicile</option>
+                            <label for="homeTeam">Equipe domicile</label>
+                            <select class="browser-default custom-select mb-3" id="homeTeam" placeholder="Equipe domicile" [(ngModel)]="fixture.homeTeam" name="homeTeam" #homeTeam="ngModel">
                                 <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
                             </select>
                         </div>
 
-                        <label for="goalsHomeTeam" class="form-group col-md-2" >Buts</label>
+                        
 
-                        <div class="form-group col-md-4">
-                            <input type="number" class="form-control" id="goalsHomeTeam" placeholder="0" [(ngModel)]="fixture.goalsHomeTeam" name="goalsHomeTeam" #goalsHomeTeam="ngModel">
+                        <div class="form-group col-md-4 ml-5">
+                            <label for="goalsHomeTeam">Score</label>
+                            <input type="number" class="form-control" id="goalsHomeTeam" min="0" [(ngModel)]="fixture.goalsHomeTeam" name="goalsHomeTeam" #goalsHomeTeam="ngModel">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label for="awayTeam">Equipe extérieur</label>
                             <select class="browser-default custom-select" id="awayTeam" [(ngModel)]="fixture.awayTeam" name="awayTeam" #awayTeam="ngModel">
-                                <option selected>Equipe exterieur</option>
                                 <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
                             </select>
                         </div>
-                        <label for="goalsAwayTeam" class="form-group col-md-2">Buts</label>
-
-                        <div class="form-group col-md-4">
-                            <input type="number" class="form-control" id="goalsAwayTeam" placeholder="0" [(ngModel)]="fixture.goalsAwayTeam" name="goalsAwayTeam" #goalsAwayTeam="ngModel">
+                        
+                        <div class="form-group col-md-4 ml-5">
+                            <label for="goalsAwayTeam">Score</label>
+                            <input type="number" class="form-control" id="goalsAwayTeam" min="0" [(ngModel)]="fixture.goalsAwayTeam" name="goalsAwayTeam" #goalsAwayTeam="ngModel">
                         </div>
                     </div>
                     <div class="modal-footer">

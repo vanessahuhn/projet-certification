@@ -30,9 +30,7 @@ import com.projet.service.RankingService;
 @RequestMapping("/api/ranking")
 public class RankingController {
 
-    //permet d'injecter LinkRepository dans mon contrôleur
     @Autowired
-    //je créé une instance de LinkRepository
     private RankingService service;
 
     @GetMapping
@@ -56,19 +54,18 @@ public class RankingController {
     }
 
     @PostMapping
-    Ranking addRanking(@Valid @RequestBody Ranking ranking) {
-        return service.addRanking(ranking);
+    Ranking addRanking(@Valid @RequestBody Ranking newRanking) {
+        return service.addRanking(newRanking);
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<Ranking> updateRanking(@PathVariable(value = "id") long id, @Valid @RequestBody Ranking ranking) {
+    ResponseEntity<Ranking> updateRanking(@PathVariable(value = "id") long id, @Valid @RequestBody Ranking newRanking) {
         Ranking rankingToUpdate = service.getRankingById(id);
         if (rankingToUpdate == null) {
             return ResponseEntity.notFound().build();
         }
-
-        Ranking updatedRanking = service.updateRanking(rankingToUpdate);
-        return ResponseEntity.ok(updatedRanking);
+        rankingToUpdate = service.updateRanking(newRanking);
+        return ResponseEntity.ok(rankingToUpdate);
     }
 
     @DeleteMapping("/{id}")

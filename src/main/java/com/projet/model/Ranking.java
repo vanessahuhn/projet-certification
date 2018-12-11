@@ -5,7 +5,7 @@
  */
 package com.projet.model;
 
-import java.time.LocalDate;
+
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,31 +22,31 @@ public class Ranking {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long standingId;
+    private Long rankingId;
     
     private Integer round;
     
-    public String evolution;
+    private String evolution;
     
-    @OneToMany (mappedBy = "classement")
-    private List<Team> equipes;
+    @OneToMany
+    private List<Team> teams;
     
     public Ranking() {
     }
 
-    public Ranking(Long standingId, Integer round, String evolution, List<Team> equipes) {
-        this.standingId = standingId;
+    public Ranking(Long rankingId, Integer round, String evolution, List<Team> teams) {
+        this.rankingId = rankingId;
         this.round = round;
         this.evolution = evolution;
-        this.equipes = equipes;
+        this.teams = teams;
     }
 
-    public Long getStandingId() {
-        return standingId;
+    public Long getRankingId() {
+        return rankingId;
     }
 
-    public void setStandingId(Long standingId) {
-        this.standingId = standingId;
+    public void setRankingId(Long rankingId) {
+        this.rankingId = rankingId;
     }
 
     public Integer getRound() {
@@ -65,12 +65,12 @@ public class Ranking {
         this.evolution = evolution;
     }
 
-    public List<Team> getEquipes() {
-        return equipes;
+    public List<Team> getTeams() {
+        return teams;
     }
 
-    public void setEquipes(List<Team> equipes) {
-        this.equipes = equipes;
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
         

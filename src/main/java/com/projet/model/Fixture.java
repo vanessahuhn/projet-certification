@@ -7,14 +7,11 @@ package com.projet.model;
 import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -29,11 +26,11 @@ public class Fixture {
     
     //date était un mot réservé
     private LocalDate eventDate;
-     
-    @ManyToOne
+    
+    @OneToOne
     private Team homeTeam;    
     
-    @ManyToOne
+    @OneToOne
     private Team awayTeam;
     
     //j'ai choisi le type Integer pour pouvoir vérifier si l'utilisateur a entré une valeur ou pas
@@ -41,25 +38,20 @@ public class Fixture {
     
     private Integer goalsAwayTeam;
     
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(
-        name = "Equipe_Match", 
-        joinColumns = { @JoinColumn(name = "match_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "equipe_id") }
-    )
-    private List<Team> equipes;
+    @OneToMany
+    private List<Team> teams;
 
     public Fixture() {
     }
 
-    public Fixture(Long fixtureId, LocalDate eventDate, Team homeTeam, Team awayTeam, Integer goalsHomeTeam, Integer goalsAwayTeam, List<Team> equipes) {
+    public Fixture(Long fixtureId, LocalDate eventDate, Team homeTeam, Team awayTeam, Integer goalsHomeTeam, Integer goalsAwayTeam, List<Team> teams) {
         this.fixtureId = fixtureId;
         this.eventDate = eventDate;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.goalsHomeTeam = goalsHomeTeam;
         this.goalsAwayTeam = goalsAwayTeam;
-        this.equipes = equipes;
+        this.teams = teams;
     }
 
     public Long getFixtureId() {
@@ -110,18 +102,11 @@ public class Fixture {
         this.goalsAwayTeam = goalsAwayTeam;
     }
 
-    public List<Team> getEquipes() {
-        return equipes;
+    public List<Team> getTeams() {
+        return teams;
     }
 
-    public void setEquipes(List<Team> equipes) {
-        this.equipes = equipes;
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
-    
-    
-
-    
-
-    
-      
 }

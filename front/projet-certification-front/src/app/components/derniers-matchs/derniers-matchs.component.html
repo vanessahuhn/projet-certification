@@ -2,18 +2,18 @@
     <div class="row mt-5">
 <div class="col-sm-12 col-md-12 col-lg-6 p-0">
 <span class="case-surtitre case-surtitre-mobile primary-color text-white font-weight-bold">Derniers matchs</span>
-<div *ngFor="let match of matchs" class="d-flex justify-content-between w-75 pt-5 mx-5 border-bottom">
-    <img class="rounded-circle border border-light" src="{{ match.equipeDomicile.logo }}" alt="logo {{ match.equipeDomicile.nom }}">
+<div *ngFor="let fixture of fixtures" class="d-flex justify-content-between w-75 pt-5 mx-5 border-bottom">
+    <img class="rounded-circle border border-light" src="{{ fixture.homeTeam.logo }}" alt="logo {{ fixture.homeTeam.name }}">
     <p>
-        {{ match.equipeDomicile.nom }}
+        {{ fixture.homeTeam.name }}
     </p>
     <p>
-        {{ match.butsDomicile }} - {{ match.butsExterieur }}
+        {{ fixture.goalsHomeTeam }} - {{ fixture.goalsAwayTeam }}
     </p>
     <p>
-        {{ match.equipeExterieur.nom }}
+        {{ fixture.awayTeam.name }}
     </p>
-    <img class="rounded-circle border border-light" src="{{ match.equipeExterieur.logo }}" alt="logo {{ match.equipeExterieur.nom }}">
+    <img class="rounded-circle border border-light" src="{{ fixture.awayTeam.logo }}" alt="logo {{ fixture.awayTeam.name }}">
 </div>
 
 <div class="d-flex justify-content-center">

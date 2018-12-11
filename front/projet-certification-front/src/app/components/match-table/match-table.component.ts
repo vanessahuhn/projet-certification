@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Match } from '../model/match';
-import { Equipe } from '../model/equipe';
-import { DataserviceService } from '../service/dataservice.service';
+import { Fixture } from '../model/fixture';
+import { Team } from '../model/team';
+import { TeamService } from '../service/team.service';
+import { FixtureService } from '../service/fixture.service';
 
 @Component({
   selector: 'app-match-table',
@@ -10,21 +11,21 @@ import { DataserviceService } from '../service/dataservice.service';
 })
 export class MatchTableComponent implements OnInit {
 
-    matchs : Match[];
-    equipes : Equipe[];
-    match = new Match();
+    fixtures : Fixture[];
+    teams : Team[];
+    fixture = new Fixture();
 
-  constructor(private dataService : DataserviceService) { }
+  constructor(private teamService : TeamService, private fixtureService : FixtureService) { }
 
   ngOnInit() {
-  this.dataService.getLastMatches().subscribe( matchs => this.matchs = matchs);
-  this.dataService.getEquipes().subscribe( equipes => this.equipes = equipes);
+  this.fixtureService.getLastFixtures().subscribe( fixtures => this.fixtures = fixtures); 
+  this.teamService.getTeams().subscribe( teams => this.teams = teams);
   }
   
-  newMatch() {
-    this.dataService.addMatch(this.match).subscribe(match => this.matchs.push(match));
-    this.dataService.updateEquipe(this.match.equipeDomicile).subscribe(equipe => this.equipes.push(equipe));
-    this.dataService.updateEquipe(this.match.equipeExterieur).subscribe(equipe => this.equipes.push(equipe));
+  newFixture() {
+    this.fixtureService.addFixture(this.fixture).subscribe(fixture => this.fixtures.push(fixture));
+    this.teamService.updateTeam(this.fixture.homeTeam).subscribe(team => this.teams.push(team));
+    this.teamService.updateTeam(this.fixture.awayTeam).subscribe(team => this.teams.push(team));
   }
 
 }

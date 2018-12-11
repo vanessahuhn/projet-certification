@@ -36,13 +36,12 @@ public class FixtureService {
         return repository.findTop2ByOrderByFixtureIdDesc();
     }
     
-    public Fixture addFixture(Fixture fixture) {        
-        return repository.save(fixture);
+    public Fixture addFixture(Fixture newFixture) {        
+        return repository.save(newFixture);
     }
     
-    public Fixture updateFixture(Fixture fixture) {       
-        Fixture updatedMatch = repository.save(fixture);
-        return updatedMatch;
+    public Fixture updateFixture(Fixture newFixture) {       
+        return repository.save(newFixture);
     }
     
     public Fixture deleteFixture(Fixture fixture) {

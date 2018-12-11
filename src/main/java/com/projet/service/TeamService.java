@@ -36,13 +36,12 @@ public class TeamService {
         return repository.findByOrderByPointsDesc();
     }
     
-    public Team addTeam(Team team) {
-        return repository.save(team);
+    public Team addTeam(Team newTeam) {
+        return repository.save(newTeam);
     }
     
-    public Team updateTeam(Team team) {       
-        Team updatedTeam = repository.save(team);
-        return updatedTeam;
+    public Team updateTeam(Team newTeam) {       
+        return repository.save(newTeam);
     }
     
     public Team deleteTeam(Team team) {

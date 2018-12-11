@@ -5,14 +5,10 @@
  */
 package com.projet.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 /**
  *
@@ -46,21 +42,14 @@ public class Team {
     private Integer goalsAgainst;
     
     private Integer goalsDiff;
-    
-    @JsonIgnore
-    @ManyToMany(mappedBy = "teams")
-    private List<Fixture> fixtures;
-    
-    @ManyToOne
-    private Ranking ranking;
 
     public Team() {
     }
 
-    public Team(Long teamId, String name, Integer rankingPosition, Integer points, String logo, Integer play, Integer win, Integer draw, Integer lose, Integer goalsFor, Integer goalsAgainst, Integer goalsDiff, List<Fixture> fixtures, Ranking ranking) {
+    public Team(Long teamId, String name, Integer rankingPosition, Integer points, String logo, Integer play, Integer win, Integer draw, Integer lose, Integer goalsFor, Integer goalsAgainst, Integer goalsDiff/*, List<Fixture> fixtures, Ranking ranking*/) {
         this.teamId = teamId;
         this.name = name;
-        this.ranking = ranking;
+        this.rankingPosition = rankingPosition;
         this.points = points;
         this.logo = logo;
         this.play = play;
@@ -70,8 +59,8 @@ public class Team {
         this.goalsFor = goalsFor;
         this.goalsAgainst = goalsAgainst;
         this.goalsDiff = goalsDiff;
-        this.fixtures = fixtures;
-        this.ranking = ranking;
+        /*this.fixtures = fixtures;
+        this.ranking = ranking;*/
     }
 
     public Long getTeamId() {
@@ -169,23 +158,4 @@ public class Team {
     public void setGoalsDiff(Integer goalsDiff) {
         this.goalsDiff = goalsDiff;
     }
-
-    public List<Fixture> getFixtures() {
-        return fixtures;
-    }
-
-    public void setFixtures(List<Fixture> fixtures) {
-        this.fixtures = fixtures;
-    }
-
-    public Ranking getRanking() {
-        return ranking;
-    }
-
-    public void setRanking(Ranking ranking) {
-        this.ranking = ranking;
-    }
-
-    
-    
 }

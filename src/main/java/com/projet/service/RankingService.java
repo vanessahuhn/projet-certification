@@ -9,11 +9,13 @@ import com.projet.model.Ranking;
 import com.projet.repository.RankingRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author vanessa
  */
+@Service
 public class RankingService {
     
     //permet d'injecter LinkRepository dans mon contrôleur
@@ -30,13 +32,12 @@ public class RankingService {
         return ranking;
     }
 
-    public Ranking addRanking(Ranking ranking) {
-        return repository.save(ranking);
+    public Ranking addRanking(Ranking newRanking) {
+        return repository.save(newRanking);
     }
 
-    public Ranking updateRanking(Ranking ranking) {
-        Ranking updatedRanking = repository.save(ranking);
-        return updatedRanking;
+    public Ranking updateRanking(Ranking newRanking) {
+        return repository.save(newRanking);
     }
 
     public Ranking deleteRanking(Ranking ranking) {

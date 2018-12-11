@@ -1,101 +1,95 @@
 
-    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="5" width="100%">
-        <thead>
-            <tr>
-                <th class="th-sm" style="width: 25%">idMatch
-                </th>
-                <th class="th-sm" style="width: 25%">Equipe domicile
-                </th>
-                <th class="th-sm" style="width: 25%">Equipe exterieur
-                </th>
-                <th class="th-sm" style="width: 25%">DateMatch
-                </th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let match of matchs">
-            <tr>
-                <td>{{match.matchId}}</td>
-                <td>{{match.equipeDomicile.nom}}</td>
-                <td>{{match.equipeExterieur.nom}}</td>
-                <td>{{match.dateMatch}}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>idMatch
-                </th>
-                <th>Equipe domicile
-                </th>
-                <th>Equipe exterieur
-                </th>
-                <th>DateMatch
-                </th>
-            </tr>
-        </tfoot>
-    </table>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">Ajouter match</button>
+<table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="5" width="100%">
+    <thead>
+        <tr>
+            <th class="th-sm" style="width: 25%">idMatch
+            </th>
+            <th class="th-sm" style="width: 25%">Equipe domicile
+            </th>
+            <th class="th-sm" style="width: 25%">Equipe exterieur
+            </th>
+            <th class="th-sm" style="width: 25%">DateMatch
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let fixture of fixtures">
+        <tr>
+            <td>{{fixture.fixtureId}}</td>
+            <td>{{fixture.homeTeam.name}}</td>
+            <td>{{fixture.awayTeam.name}}</td>
+            <td>{{fixture.eventDate}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>idMatch
+            </th>
+            <th>Equipe domicile
+            </th>
+            <th>Equipe exterieur
+            </th>
+            <th>DateMatch
+            </th>
+        </tr>
+    </tfoot>
+</table>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">Ajouter match</button>
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un match</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body mb-1">
-                    <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
-                        <div class="md-form form-sm">
-                            <i class="fa fa-calendar prefix"></i>
-                            <input type="date" id="dateMatch" class="form-control form-control-sm"
-                                   [(ngModel)]="match.dateMatch" name="dateMatch"
-                                   #dateMatch="ngModel">
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un match</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mb-1">
+                <form (ngSubmit)="onSubmit()" #fixtureForm="ngForm">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-calendar prefix"></i>
+                        <input type="date" id="eventDate" class="form-control form-control-sm" [(ngModel)]="fixture.eventDate" name="eventDate" #eventDate="ngModel">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <!-- Basic dropdown -->
+                            <select class="browser-default custom-select mb-3" id="homeTeam" [(ngModel)]="fixture.homeTeam" name="homeTeam" #homeTeam="ngModel">
+                                <option selected>Equipe domicile</option>
+                                <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
+                            </select>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <!-- Basic dropdown -->
-                                <select class="browser-default custom-select mb-3" id="equipeDomicile" [(ngModel)]="match.equipeDomicile" name="equipeDomicile"
-                                   #equipeDomicile="ngModel">
-                                    <option selected>Equipe domicile</option>
-                                    <option *ngFor="let equipe of equipes" [ngValue]="equipe" >{{equipe.nom}}</option>
-                                </select>
-                            </div>
+                        <label for="goalsHomeTeam" class="form-group col-md-2" >Buts</label>
 
-                            <label for="butsDomicile" class="form-group col-md-2" >Buts</label>
+                        <div class="form-group col-md-4">
+                            <input type="number" class="form-control" id="goalsHomeTeam" placeholder="0" [(ngModel)]="fixture.goalsHomeTeam" name="goalsHomeTeam" #goalsHomeTeam="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <select class="browser-default custom-select" id="awayTeam" [(ngModel)]="fixture.awayTeam" name="awayTeam" #awayTeam="ngModel">
+                                <option selected>Equipe exterieur</option>
+                                <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
+                            </select>
+                        </div>
+                        <label for="goalsAwayTeam" class="form-group col-md-2">Buts</label>
 
-                            <div class="form-group col-md-4">
-                                <input type="number" class="form-control" id="butsDomicile" placeholder="0" [(ngModel)]="match.butsDomicile" name="butsDomicile"
-                                   #butsDomicile="ngModel">
-                            </div>
+                        <div class="form-group col-md-4">
+                            <input type="number" class="form-control" id="goalsAwayTeam" placeholder="0" [(ngModel)]="fixture.goalsAwayTeam" name="goalsAwayTeam" #goalsAwayTeam="ngModel">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <select class="browser-default custom-select" id="equipeExterieur"[(ngModel)]="match.equipeExterieur" name="equipeExterieur"
-                                   #equipeExterieur="ngModel">
-                                    <option selected>Equipe exterieur</option>
-                                    <option *ngFor="let equipe of equipes" [ngValue]="equipe" >{{equipe.nom}}</option>
-                                </select>
-                            </div>
-                            <label for="inputZip" class="form-group col-md-2">Buts</label>
-
-                            <div class="form-group col-md-4">
-                                <input type="number" class="form-control" id="butsExterieur" placeholder="0" [(ngModel)]="match.butsExterieur" name="butsExterieur"
-                                   #butsExterieur="ngModel">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                            <button type="button" class="btn btn-primary" (click)="newMatch()" data-dismiss="modal">Sauvegarder</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary" (click)="newFixture()" data-dismiss="modal">Sauvegarder</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>

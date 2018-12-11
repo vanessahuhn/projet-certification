@@ -1,5 +1,5 @@
-INSERT INTO `footdb`.`equipe`
-(`equipe_id`, `nom`, `place`, `points`, `logo`)
+INSERT INTO `footdb`.`team`
+(`team_id`, `name`, `ranking_position`, `points`, `logo`)
 VALUES
 (1, 'Paris SG', 0, 0, 'https://i.ibb.co/DMcyk6y/Paris-SGRond.png'),
 (2, 'Paris FC', 0, 0, 'https://i.ibb.co/Ky4zFg3/Paris-FCRond.png'),

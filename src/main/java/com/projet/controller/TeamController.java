@@ -61,19 +61,18 @@ public class TeamController {
     }
 
     @PostMapping
-    Team addTeam(@Valid @RequestBody Team team) {
-        return service.addTeam(team);
+    Team addTeam(@Valid @RequestBody Team newTeam) {
+        return service.addTeam(newTeam);
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<Team> updateTeam(@PathVariable(value = "id") long id, @Valid @RequestBody Team team) {
+    ResponseEntity<Team> updateTeam(@PathVariable(value = "id") long id, @Valid @RequestBody Team newTeam) {
         Team teamToUpdate = service.getTeamById(id);
         if (teamToUpdate == null) {
             return ResponseEntity.notFound().build();
         }
-
-        Team updatedTeam = service.updateTeam(teamToUpdate);
-        return ResponseEntity.ok(updatedTeam);
+        teamToUpdate = service.updateTeam(newTeam);
+        return ResponseEntity.ok(teamToUpdate);
     }
 
     @DeleteMapping("/{id}")

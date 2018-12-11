@@ -61,19 +61,18 @@ public class FixtureController {
     }
 
     @PostMapping
-    Fixture addFixture(@Valid @RequestBody Fixture fixture) {        
-        return service.addFixture(fixture);
+    Fixture addFixture(@Valid @RequestBody Fixture newFixture) {        
+        return service.addFixture(newFixture);
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<Fixture> updateFixture(@PathVariable(value = "id") long id, @Valid @RequestBody Fixture fixture) {
+    ResponseEntity<Fixture> updateFixture(@PathVariable(value = "id") long id, @Valid @RequestBody Fixture newFixture) {
         Fixture fixtureToUpdate = service.getFixtureById(id);
         if (fixtureToUpdate == null) {
             return ResponseEntity.notFound().build();
         }
-
-        Fixture updatedFixture = service.updateFixture(fixtureToUpdate);
-        return ResponseEntity.ok(updatedFixture);
+        fixtureToUpdate = service.updateFixture(newFixture);
+        return ResponseEntity.ok(fixtureToUpdate);
     }
 
     @DeleteMapping("/{id}")

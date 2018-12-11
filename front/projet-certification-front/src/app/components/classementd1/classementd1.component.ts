@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipe } from '../model/equipe';
-import { DataserviceService } from '../service/dataservice.service';
+import { Team } from '../model/team';
+import { TeamService } from '../service/team.service';
 
 @Component({
   selector: 'app-classementd1',
@@ -9,12 +9,12 @@ import { DataserviceService } from '../service/dataservice.service';
 })
 export class Classementd1Component implements OnInit {
 
-    equipes : Equipe[];
+    teams : Team[];
 
-  constructor(private dataService : DataserviceService) { }
+  constructor(private teamService : TeamService) { }
 
   ngOnInit() {
-  this.dataService.getEquipesByPoints().subscribe( equipes => this.equipes = equipes);
+  this.teamService.getTeamsByPoints().subscribe( teams => this.teams = teams);
   }
 
 }

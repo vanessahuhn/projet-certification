@@ -36,8 +36,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">Ajouter match</button>
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -53,36 +51,34 @@
                 <form (ngSubmit)="onSubmit()" #fixtureForm="ngForm">
                     <div class="md-form form-sm">
                         <i class="fa fa-calendar prefix"></i>
-                        <input type="date" id="eventDate" class="form-control form-control-sm" [(ngModel)]="fixture.eventDate" name="eventDate" #eventDate="ngModel">
+                        <input type="date" id="eventDate" class="form-control form-control-sm" [(ngModel)]="fixture.eventDate" name="eventDate" #eventDate="ngModel" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <!-- Basic dropdown -->
                             <label for="homeTeam">Equipe domicile</label>
-                            <select class="browser-default custom-select mb-3" id="homeTeam" placeholder="Equipe domicile" [(ngModel)]="fixture.homeTeam" name="homeTeam" #homeTeam="ngModel">
+                            <select class="browser-default custom-select mb-3" id="homeTeam" placeholder="Equipe domicile" [(ngModel)]="fixture.homeTeam" name="homeTeam" #homeTeam="ngModel" required>
                                 <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
                             </select>
                         </div>
 
-                        
-
                         <div class="form-group col-md-4 ml-5">
                             <label for="goalsHomeTeam">Score</label>
-                            <input type="number" class="form-control" id="goalsHomeTeam" min="0" [(ngModel)]="fixture.goalsHomeTeam" name="goalsHomeTeam" #goalsHomeTeam="ngModel">
+                            <input type="number" class="form-control" id="goalsHomeTeam" min="0" [(ngModel)]="fixture.goalsHomeTeam" name="goalsHomeTeam" #goalsHomeTeam="ngModel" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="awayTeam">Equipe extérieur</label>
-                            <select class="browser-default custom-select" id="awayTeam" [(ngModel)]="fixture.awayTeam" name="awayTeam" #awayTeam="ngModel">
+                            <select class="browser-default custom-select" id="awayTeam" [(ngModel)]="fixture.awayTeam" name="awayTeam" #awayTeam="ngModel" required>
                                 <option *ngFor="let team of teams" [ngValue]="team" >{{team.name}}</option>
                             </select>
                         </div>
                         
                         <div class="form-group col-md-4 ml-5">
                             <label for="goalsAwayTeam">Score</label>
-                            <input type="number" class="form-control" id="goalsAwayTeam" min="0" [(ngModel)]="fixture.goalsAwayTeam" name="goalsAwayTeam" #goalsAwayTeam="ngModel">
+                            <input type="number" class="form-control" id="goalsAwayTeam" min="0" [(ngModel)]="fixture.goalsAwayTeam" name="goalsAwayTeam" #goalsAwayTeam="ngModel" required>
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -6,6 +6,7 @@
 package com.projet.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ import javax.persistence.OneToMany;
  * @author vanessa
  */
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ranking {
     
     @Id
@@ -30,16 +32,6 @@ public class Ranking {
     
     @OneToMany
     private List<Team> teams;
-    
-    public Ranking() {
-    }
-
-    public Ranking(Long rankingId, Integer round, String evolution, List<Team> teams) {
-        this.rankingId = rankingId;
-        this.round = round;
-        this.evolution = evolution;
-        this.teams = teams;
-    }
 
     public Long getRankingId() {
         return rankingId;
@@ -73,6 +65,16 @@ public class Ranking {
         this.teams = teams;
     }
 
-        
+    public Ranking(Long rankingId, Integer round, String evolution, List<Team> teams) {
+        this.rankingId = rankingId;
+        this.round = round;
+        this.evolution = evolution;
+        this.teams = teams;
+    }
+
+    public Ranking() {
+    }
+    
+          
     
 }

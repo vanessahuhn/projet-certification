@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package com.projet.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,6 +21,7 @@ import javax.persistence.OneToOne;
  * @author vanessa
  */
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Fixture {
     
     @Id
@@ -27,10 +31,10 @@ public class Fixture {
     //date était un mot réservé
     private LocalDate eventDate;
     
-    @OneToOne
+    @ManyToOne
     private Team homeTeam;    
     
-    @OneToOne
+    @ManyToOne
     private Team awayTeam;
     
     //j'ai choisi le type Integer pour pouvoir vérifier si l'utilisateur a entré une valeur ou pas
@@ -109,4 +113,6 @@ public class Fixture {
     public void setTeams(List<Team> teams) {
         this.teams = teams;
     }
+
+    
 }

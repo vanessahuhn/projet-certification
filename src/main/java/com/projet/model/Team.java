@@ -5,6 +5,7 @@
  */
 package com.projet.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
  * @author vanessa
  */
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Team {
     
     @Id
@@ -42,26 +44,6 @@ public class Team {
     private Integer goalsAgainst;
     
     private Integer goalsDiff;
-
-    public Team() {
-    }
-
-    public Team(Long teamId, String name, Integer rankingPosition, Integer points, String logo, Integer play, Integer win, Integer draw, Integer lose, Integer goalsFor, Integer goalsAgainst, Integer goalsDiff/*, List<Fixture> fixtures, Ranking ranking*/) {
-        this.teamId = teamId;
-        this.name = name;
-        this.rankingPosition = rankingPosition;
-        this.points = points;
-        this.logo = logo;
-        this.play = play;
-        this.win = win;
-        this.draw = draw;
-        this.lose = lose;
-        this.goalsFor = goalsFor;
-        this.goalsAgainst = goalsAgainst;
-        this.goalsDiff = goalsDiff;
-        /*this.fixtures = fixtures;
-        this.ranking = ranking;*/
-    }
 
     public Long getTeamId() {
         return teamId;
@@ -158,4 +140,24 @@ public class Team {
     public void setGoalsDiff(Integer goalsDiff) {
         this.goalsDiff = goalsDiff;
     }
+
+    public Team() {
+    }
+
+    public Team(Long teamId, String name, Integer rankingPosition, Integer points, String logo, Integer play, Integer win, Integer draw, Integer lose, Integer goalsFor, Integer goalsAgainst, Integer goalsDiff) {
+        this.teamId = teamId;
+        this.name = name;
+        this.rankingPosition = rankingPosition;
+        this.points = points;
+        this.logo = logo;
+        this.play = play;
+        this.win = win;
+        this.draw = draw;
+        this.lose = lose;
+        this.goalsFor = goalsFor;
+        this.goalsAgainst = goalsAgainst;
+        this.goalsDiff = goalsDiff;
+    }
+
+    
 }

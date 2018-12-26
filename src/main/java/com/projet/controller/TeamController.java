@@ -46,13 +46,9 @@ public class TeamController {
      *
      * @return List<Team> via service.findAll()
      */
-    @GetMapping("{id}")
-    ResponseEntity<Team> getTeamById(@PathVariable(value = "id") long id) {
-        Team team = service.getTeamById(id);
-        if (team == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok().body(team);
+    @GetMapping("/{id}")
+    Team getTeamById(@PathVariable(value = "id") Long id) {
+        return service.getTeamById(id);
     }
     
     @GetMapping("/points")

@@ -17,36 +17,35 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TeamService {
-    
+
     //permet d'injecter LinkRepository dans mon contrôleur
     @Autowired
     //je créé une instance de LinkRepository
     private TeamRepository repository;
-    
+
     public List<Team> getAllTeams() {
         return repository.findAll();
     }
-    
-    public Team getTeamById(long id) {
-        Team team = repository.getOne(id);
-        return team;
+
+    public Team getTeamById(Long id) {
+        return repository.getOne(id);
     }
-    
+
     public List<Team> getTeamByPoints() {
         return repository.findByOrderByPointsDesc();
     }
-    
+
     public Team addTeam(Team newTeam) {
         return repository.save(newTeam);
     }
-    
-    public Team updateTeam(Team newTeam) {       
+
+    public Team updateTeam(Team newTeam) {
         return repository.save(newTeam);
     }
-    
+
     public Team deleteTeam(Team team) {
         repository.delete(team);
         return team;
     }
-    
+
 }

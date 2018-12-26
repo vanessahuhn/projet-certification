@@ -30,9 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/fixtures")
 public class FixtureController {
     
-    //permet d'injecter LinkRepository dans mon contrôleur
     @Autowired
-    //je créé une instance de LinkRepository
     private FixtureService service;
 
     @GetMapping
@@ -61,7 +59,7 @@ public class FixtureController {
     }
 
     @PostMapping
-    Fixture addFixture(@Valid @RequestBody Fixture newFixture) {        
+        Fixture addFixture(@Valid @RequestBody Fixture newFixture) {        
         return service.addFixture(newFixture);
     }
 
